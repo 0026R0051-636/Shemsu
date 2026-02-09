@@ -175,6 +175,8 @@ class SMSService:
             return False
         
         if phone_number.startswith('+'):
+            # With '+' prefix: need > 9 chars total (e.g., +1234567890 = 11 chars for 10 digits)
             return phone_number[1:].isdigit() and len(phone_number) > MIN_PHONE_LENGTH_WITH_PLUS
         
+        # Without '+' prefix: need >= 10 digits (e.g., 1234567890 = 10 chars)
         return phone_number.isdigit() and len(phone_number) >= MIN_PHONE_LENGTH_WITHOUT_PLUS

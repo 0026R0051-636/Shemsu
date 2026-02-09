@@ -5,7 +5,7 @@ A simple, easy-to-use SMS application starter code for your SMS business. Perfec
 ## Features ✨
 
 - **Easy to Use**: Simple API for sending SMS messages
-- **Multiple Providers**: Support for Twilio, Nexmo/Vonage, or Mock mode for testing
+- **Multiple Providers**: Support for Twilio, Vonage, or Mock mode for testing
 - **Interactive Mode**: User-friendly command-line interface
 - **Programmatic API**: Use as a library in your own applications
 - **Well Documented**: Comprehensive examples and documentation
@@ -167,7 +167,7 @@ Shemsu/
 
 - Python 3.6 or higher
 - pip (Python package manager)
-- (Optional) SMS provider account (Twilio, Nexmo, etc.)
+- (Optional) SMS provider account (Twilio, Vonage, etc.)
 
 ## Support 🆘
 
