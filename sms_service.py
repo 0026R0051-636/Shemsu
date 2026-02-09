@@ -114,6 +114,9 @@ class SMSService:
         
         Note: Requires vonage package and proper configuration.
         Install with: pip install vonage
+        
+        API may vary by Vonage SDK version. This is a basic implementation.
+        Refer to Vonage documentation for the latest API: https://developer.vonage.com/
         """
         try:
             import vonage
@@ -122,6 +125,12 @@ class SMSService:
                 key=config.VONAGE_API_KEY,
                 secret=config.VONAGE_API_SECRET
             )
+            
+            # Note: API syntax may vary by SDK version
+            # For newer versions, you might need to use:
+            # from vonage import Sms
+            # sms = vonage.Sms(client)
+            # response = sms.send_message({...})
             
             response = client.sms.send_message({
                 'from': config.VONAGE_PHONE_NUMBER,
