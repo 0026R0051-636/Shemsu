@@ -3,7 +3,7 @@ SMS service module for Shemsu SMS application.
 Provides functionality to send SMS messages using different providers.
 """
 import logging
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 from config import config
 
@@ -22,7 +22,7 @@ class SMSService:
         self.provider = config.SMS_PROVIDER
         logger.info(f"SMS Service initialized with provider: {self.provider}")
     
-    def send_sms(self, to_number: str, message: str) -> Dict[str, any]:
+    def send_sms(self, to_number: str, message: str) -> Dict[str, Any]:
         """
         Send an SMS message.
         
@@ -42,7 +42,7 @@ class SMSService:
         else:
             raise ValueError(f"Unsupported SMS provider: {self.provider}")
     
-    def _send_mock_sms(self, to_number: str, message: str) -> Dict[str, any]:
+    def _send_mock_sms(self, to_number: str, message: str) -> Dict[str, Any]:
         """
         Mock SMS sending for testing purposes.
         
@@ -65,7 +65,7 @@ class SMSService:
             'message_id': 'mock_msg_12345'
         }
     
-    def _send_twilio_sms(self, to_number: str, message: str) -> Dict[str, any]:
+    def _send_twilio_sms(self, to_number: str, message: str) -> Dict[str, Any]:
         """
         Send SMS using Twilio.
         
@@ -105,7 +105,7 @@ class SMSService:
                 'error': str(e)
             }
     
-    def _send_nexmo_sms(self, to_number: str, message: str) -> Dict[str, any]:
+    def _send_nexmo_sms(self, to_number: str, message: str) -> Dict[str, Any]:
         """
         Send SMS using Nexmo/Vonage.
         
