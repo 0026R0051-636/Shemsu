@@ -44,7 +44,7 @@ class ShemsuApp:
             return False
         
         # Validate message
-        if not message or len(message) == 0:
+        if not message:
             logger.error("Message cannot be empty")
             return False
         

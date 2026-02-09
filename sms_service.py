@@ -14,6 +14,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Phone number validation constants
+MIN_PHONE_LENGTH_WITH_PLUS = 9
+MIN_PHONE_LENGTH_WITHOUT_PLUS = 10
+
 
 class SMSService:
     """Base SMS service class."""
@@ -171,6 +175,6 @@ class SMSService:
             return False
         
         if phone_number.startswith('+'):
-            return phone_number[1:].isdigit() and len(phone_number) > 8
+            return phone_number[1:].isdigit() and len(phone_number) > MIN_PHONE_LENGTH_WITH_PLUS
         
-        return phone_number.isdigit() and len(phone_number) >= 10
+        return phone_number.isdigit() and len(phone_number) >= MIN_PHONE_LENGTH_WITHOUT_PLUS
