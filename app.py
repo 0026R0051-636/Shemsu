@@ -6,7 +6,6 @@ Perfect for starting an SMS business.
 """
 import sys
 import logging
-from typing import Optional
 
 from config import config
 from sms_service import SMSService

@@ -3,7 +3,7 @@ SMS service module for Shemsu SMS application.
 Provides functionality to send SMS messages using different providers.
 """
 import logging
-from typing import Dict, Optional, Any
+from typing import Dict, Any
 
 from config import config
 
