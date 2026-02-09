@@ -15,8 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Phone number validation constants
-MIN_PHONE_LENGTH_WITH_PLUS = 9
-MIN_PHONE_LENGTH_WITHOUT_PLUS = 10
+MIN_PHONE_DIGITS = 10  # Minimum number of digits in a phone number
 
 
 class SMSService:
@@ -175,8 +174,9 @@ class SMSService:
             return False
         
         if phone_number.startswith('+'):
-            # With '+' prefix: need > 9 chars total (e.g., +1234567890 = 11 chars for 10 digits)
-            return phone_number[1:].isdigit() and len(phone_number) > MIN_PHONE_LENGTH_WITH_PLUS
+            # With '+' prefix: check that digits after '+' meet minimum length
+            digits = phone_number[1:]
+            return digits.isdigit() and len(digits) >= MIN_PHONE_DIGITS
         
-        # Without '+' prefix: need >= 10 digits (e.g., 1234567890 = 10 chars)
-        return phone_number.isdigit() and len(phone_number) >= MIN_PHONE_LENGTH_WITHOUT_PLUS
+        # Without '+' prefix: check that all characters are digits and meet minimum length
+        return phone_number.isdigit() and len(phone_number) >= MIN_PHONE_DIGITS
