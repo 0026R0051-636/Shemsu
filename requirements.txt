@@ -1,0 +1,7 @@
+# SMS Provider Libraries (examples - uncomment the one you need)
+# twilio>=8.0.0  # For Twilio SMS service
+# vonage>=3.0.0  # For Vonage (formerly Nexmo) SMS service
+# python-dotenv>=1.0.0  # For environment variable management
+
+# Basic dependencies for the starter app
+python-dotenv>=1.0.0
