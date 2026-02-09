@@ -114,12 +114,12 @@ TWILIO_AUTH_TOKEN=your_auth_token
 TWILIO_PHONE_NUMBER=+1234567890
 ```
 
-### Nexmo/Vonage
+### Vonage (formerly Nexmo)
 ```ini
-SMS_PROVIDER=nexmo
-NEXMO_API_KEY=your_api_key
-NEXMO_API_SECRET=your_api_secret
-NEXMO_PHONE_NUMBER=+1234567890
+SMS_PROVIDER=vonage
+VONAGE_API_KEY=your_api_key
+VONAGE_API_SECRET=your_api_secret
+VONAGE_PHONE_NUMBER=+1234567890
 ```
 
 ## Project Structure 📁
@@ -142,7 +142,7 @@ Shemsu/
 
 1. **Choose an SMS Provider**: 
    - [Twilio](https://www.twilio.com/) - Popular, easy to use
-   - [Vonage/Nexmo](https://www.vonage.com/) - Competitive pricing
+   - [Vonage](https://www.vonage.com/) - Competitive pricing
    
 2. **Sign Up**: Create an account with your chosen provider
 

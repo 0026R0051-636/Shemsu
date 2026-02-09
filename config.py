@@ -12,17 +12,17 @@ class Config:
     """Application configuration class."""
     
     # SMS Provider settings
-    SMS_PROVIDER = os.getenv('SMS_PROVIDER', 'mock')  # Options: 'twilio', 'nexmo', 'mock'
+    SMS_PROVIDER = os.getenv('SMS_PROVIDER', 'mock')  # Options: 'twilio', 'vonage', 'mock'
     
     # Twilio Configuration (if using Twilio)
     TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID', '')
     TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN', '')
     TWILIO_PHONE_NUMBER = os.getenv('TWILIO_PHONE_NUMBER', '')
     
-    # Nexmo/Vonage Configuration (if using Nexmo)
-    NEXMO_API_KEY = os.getenv('NEXMO_API_KEY', '')
-    NEXMO_API_SECRET = os.getenv('NEXMO_API_SECRET', '')
-    NEXMO_PHONE_NUMBER = os.getenv('NEXMO_PHONE_NUMBER', '')
+    # Vonage Configuration (if using Vonage, formerly Nexmo)
+    VONAGE_API_KEY = os.getenv('VONAGE_API_KEY', '')
+    VONAGE_API_SECRET = os.getenv('VONAGE_API_SECRET', '')
+    VONAGE_PHONE_NUMBER = os.getenv('VONAGE_PHONE_NUMBER', '')
     
     # Application settings
     DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'

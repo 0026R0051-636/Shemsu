@@ -41,8 +41,8 @@ class SMSService:
             return self._send_mock_sms(to_number, message)
         elif self.provider == 'twilio':
             return self._send_twilio_sms(to_number, message)
-        elif self.provider == 'nexmo':
-            return self._send_nexmo_sms(to_number, message)
+        elif self.provider == 'vonage':
+            return self._send_vonage_sms(to_number, message)
         else:
             raise ValueError(f"Unsupported SMS provider: {self.provider}")
     
@@ -109,32 +109,32 @@ class SMSService:
                 'error': str(e)
             }
     
-    def _send_nexmo_sms(self, to_number: str, message: str) -> Dict[str, Any]:
+    def _send_vonage_sms(self, to_number: str, message: str) -> Dict[str, Any]:
         """
-        Send SMS using Nexmo/Vonage.
+        Send SMS using Vonage (formerly Nexmo).
         
-        Note: Requires nexmo package and proper configuration.
-        Install with: pip install nexmo
+        Note: Requires vonage package and proper configuration.
+        Install with: pip install vonage
         """
         try:
-            import nexmo
+            import vonage
             
-            client = nexmo.Client(
-                key=config.NEXMO_API_KEY,
-                secret=config.NEXMO_API_SECRET
+            client = vonage.Client(
+                key=config.VONAGE_API_KEY,
+                secret=config.VONAGE_API_SECRET
             )
             
-            response = client.send_message({
-                'from': config.NEXMO_PHONE_NUMBER,
+            response = client.sms.send_message({
+                'from': config.VONAGE_PHONE_NUMBER,
                 'to': to_number,
                 'text': message
             })
             
             if response['messages'][0]['status'] == '0':
-                logger.info(f"[NEXMO] SMS sent successfully")
+                logger.info(f"[VONAGE] SMS sent successfully")
                 return {
                     'success': True,
-                    'provider': 'nexmo',
+                    'provider': 'vonage',
                     'to': to_number,
                     'message': message,
                     'status': 'sent',
@@ -142,19 +142,19 @@ class SMSService:
                 }
             else:
                 error_text = response['messages'][0]['error-text']
-                logger.error(f"[NEXMO] Error: {error_text}")
+                logger.error(f"[VONAGE] Error: {error_text}")
                 return {
                     'success': False,
                     'error': error_text
                 }
         except ImportError:
-            logger.error("Nexmo package not installed. Install with: pip install nexmo")
+            logger.error("Vonage package not installed. Install with: pip install vonage")
             return {
                 'success': False,
-                'error': 'Nexmo package not installed'
+                'error': 'Vonage package not installed'
             }
         except Exception as e:
-            logger.error(f"[NEXMO] Error sending SMS: {str(e)}")
+            logger.error(f"[VONAGE] Error sending SMS: {str(e)}")
             return {
                 'success': False,
                 'error': str(e)

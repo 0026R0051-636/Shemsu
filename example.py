@@ -95,8 +95,8 @@ def main():
     print("\nNext steps:")
     print("1. Copy .env.example to .env")
     print("2. Configure your SMS provider credentials in .env")
-    print("3. Install provider SDK: pip install twilio  (or pip install nexmo)")
-    print("4. Update SMS_PROVIDER in .env to 'twilio' or 'nexmo'")
+    print("3. Install provider SDK: pip install twilio  (or pip install vonage)")
+    print("4. Update SMS_PROVIDER in .env to 'twilio' or 'vonage'")
     print("5. Start sending real SMS messages!")
 
 
